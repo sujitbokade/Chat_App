@@ -8,7 +8,7 @@ import {
   Alert,
 } from 'react-native';
 
-//👇🏻 Import the app styles
+// Import the app styles
 import {styles} from '../utils/styles';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -16,10 +16,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Login = ({navigation}) => {
   const [username, setUsername] = useState('');
 
-  //👇🏻 checks if the input field is empty
+  //checks if the input field is empty
   const storeUsername = async () => {
     try {
-      //👇🏻 async function - saves the username to AsyncStorage
+      // async function - saves the username to AsyncStorage
       //   redirecting to the Chat page
       await AsyncStorage.setItem('username', username);
       navigation.navigate('Chat');
@@ -30,7 +30,7 @@ const Login = ({navigation}) => {
 
   const handleSignIn = () => {
     if (username.trim()) {
-      //👇🏻 calls AsyncStorage function
+      // calls AsyncStorage function
       storeUsername();
     } else {
       Alert.alert('Username is required.');

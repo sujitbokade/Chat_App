@@ -12,10 +12,10 @@ const Messaging = ({route, navigation}) => {
   const [message, setMessage] = useState('');
   const [user, setUser] = useState('');
 
-  //👇🏻 Access the chatroom's name and id
+  // Access the chatroom's name and id
   const {name, id} = route.params;
 
-  //👇🏻 This function gets the username saved on AsyncStorage
+  // This function gets the username saved on AsyncStorage
   const getUsername = async () => {
     try {
       const value = await AsyncStorage.getItem('username');
@@ -27,7 +27,7 @@ const Messaging = ({route, navigation}) => {
     }
   };
 
-  //👇🏻 Sets the header title to the name chatroom's name
+  //Sets the header title to the name chatroom's name
   useLayoutEffect(() => {
     navigation.setOptions({title: name});
     socket.emit('findRoom', id);
@@ -39,7 +39,7 @@ const Messaging = ({route, navigation}) => {
     socket.on('foundRoom', roomChats => setChatMessages(roomChats));
   }, [socket]);
 
-  /*👇🏻
+  /*
         This function gets the time the user sends a message, then
         logs the username, message, and the timestamp to the console.
      */

@@ -11,7 +11,7 @@ const Chat = () => {
   const [visible, setVisible] = React.useState(false);
   const [rooms, setRooms] = React.useState([]);
 
-  //👇🏻 Runs when the component mounts
+  // Runs when the component mounts
   React.useLayoutEffect(() => {
     function fetchGroups() {
       fetch('http://10.0.2.2:4000/api')
@@ -22,7 +22,7 @@ const Chat = () => {
     fetchGroups();
   }, []);
 
-  //👇🏻 Runs whenever there is new trigger from the backend
+  // Runs whenever there is new trigger from the backend
   React.useEffect(() => {
     socket.on('roomsList', (rooms) => {
       setRooms(rooms);
@@ -35,7 +35,7 @@ const Chat = () => {
         <View style={styles.chatheader}>
           <Text style={styles.chatheading}>Chats</Text>
 
-          {/* 👇🏻 Logs "ButtonPressed" to the console when the icon is clicked */}
+          {/*  Logs "ButtonPressed" to the console when the icon is clicked */}
           <Pressable onPress={() => setVisible(true)}>
             <Feather name="edit" size={24} color="green" />
           </Pressable>
