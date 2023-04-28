@@ -38,7 +38,7 @@ socketIO.on('connection', socket => {
   });
 
   socket.on('newMessage', data => {
-    // Destructures the property from the object
+    //Destructures the property from the object
     const {room_id, message, user, timestamp} = data;
 
     // Finds the room where the message was sent

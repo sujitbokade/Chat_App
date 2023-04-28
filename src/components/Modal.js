@@ -12,7 +12,7 @@ const Modal = ({setVisible}) => {
 
   // Logs the group name to the console
   const handleCreateRoom = () => {
-    // sends a message containing the group name to the server
+    //sends a message containing the group name to the server
     socket.emit('createRoom', groupName);
     console.log({groupName});
     closeModal();
