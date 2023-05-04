@@ -12,7 +12,7 @@ const Messaging = ({route, navigation}) => {
   const [message, setMessage] = useState('');
   const [user, setUser] = useState('');
 
-  // Access the chatroom's name and id
+  // Access the chatroom name and id
   const {name, id} = route.params;
 
   // This function gets the username saved on AsyncStorage
@@ -41,9 +41,10 @@ const Messaging = ({route, navigation}) => {
 
   /*
         This function gets the time the user sends a message, then
-        logs the username, message, and the timestamp to the console.
+        logs the username, message, and the timestamp to the console
      */
   const handleNewMessage = () => {
+    
     const hour =
       new Date().getHours() < 10
         ? `0${new Date().getHours()}`
@@ -60,6 +61,7 @@ const Messaging = ({route, navigation}) => {
       user,
       timestamp: {hour, mins},
     });
+    
   };
 
   return (
